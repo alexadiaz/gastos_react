@@ -1,16 +1,19 @@
 let Container = (props) =>{
     return(
         <div className={props.class}>
-            <div className="consulta">
+            <div>
                 <Titulo/>
+                <div className="linea-titulo"></div>
                 <Busqueda class="busqueda"/>
+            </div>
+            <div className="consulta">
                 <SubTitulo/>
-                <Resultado class="resultado"/>
+                <Resultado class="resultado clearfix"/>
                 <BotonInsertar class="boton-insertar"/>
             </div>
             <div className="insertar">
-                <Insertar tabla="3" class="datos-insertar"/>
-                <BotonGuardar class="boton-guardar"/>
+                <DatosInsertar tabla="1"/>
+                <Botones class="botones"/>
             </div>
         </div>
     );
@@ -21,8 +24,8 @@ let Titulo = () => <h2>Control de Pagos</h2>;
 let Busqueda = (props) => {
     return (
         <div className={props.class}>
-            <div>Elija tabla a consultar</div>
-            <select>
+            <div className="busqueda-texto">Elija tabla</div>
+            <select className="busqueda-seleccion">
                 <option>opcion 1</option>
             </select>
             <input type="button" value ="Consultar"/>
@@ -37,9 +40,9 @@ let Resultado = (props) =>{
         <div className={props.class}>
             <ul>
                 <li>
-                    <div>consulta 1</div>
-                    <input type="button" value="Modificar"/>
-                    <input type="button" value="Eliminar"/>
+                    <div className="resultado-texto">consulta 1</div>
+                    <input type="button" className="boton-eliminar" value="Eliminar"/>
+                    <input type="button" className="boton-modificar" value="Modificar"/>
                 </li>
             </ul>
         </div>
@@ -54,7 +57,7 @@ let BotonInsertar = (props) =>{
     );
 };
 
-let Insertar = (props) =>{
+let DatosInsertar = (props) =>{
     let formulario;
     if (props.tabla === "1"){
         formulario = <InsertarGastosIngresos/>;
@@ -65,17 +68,13 @@ let Insertar = (props) =>{
     else{
         formulario = <InsertarPagos/>; 
     }
-    return(
-        <div className={props.class}>
-            {formulario}
-        </div> 
-    );
+    return formulario;
 };
 
 let InsertarGastosIngresos = () =>{
     return(
         <div>
-            <div>Digite Nombre</div>
+            <div className="insertar-texto">Digite Nombre</div>
             <input type="text"/>
         </div>
     );
@@ -110,10 +109,11 @@ let InsertarPagos = () =>{
     );
 };
 
-let BotonGuardar = (props) =>{
+let Botones = (props) =>{
     return (
         <div className={props.class}>
-            <input type="button" value="Guardar"/>
+            <input type="button" className="boton-guardar" value="Guardar"/>
+            <input type="button" value="Cancelar"/>
         </div>
     );
 };
