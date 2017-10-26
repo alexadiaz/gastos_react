@@ -1,40 +1,86 @@
+h2{
+    margin-top: 8%;
+    margin-bottom: 1%;
+    text-align: center;
+}
+
 h4{
-    margin-bottom: 0;
+    margin: 0;
+    text-align: center;
 }
 
 .container{
+    border: 1px solid black;
     margin:5%;
 }
 
-.consulta{
-    border: 1px solid red;
+.linea-titulo{
+   border: 1px dashed gray;
+   margin:0 5%;
 }
 
 .busqueda{
-    border: 1px solid blue;
-    margin:3% 5%;
+   margin:7% 5% 5%;
+}
+
+.consulta{
+    margin:2% 5%;
+
+}
+
+.busqueda-texto{
+    display: inline-block;
+}
+
+.busqueda-seleccion{
+    margin-left:2%;
+    margin-right:5%;
 }
 
 .resultado{
-    border: 1px solid blue;
-    margin:2% 5%;
+    border: 1px solid black;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+.resultado-texto{
+    display: inline-block;
+}
+
+.boton-modificar{
+    float:right;
+}
+
+.boton-eliminar{
+    float:right;
+    margin-right: 3%;
+    margin-left: 3%;
 }
 
 .boton-insertar{
-    border: 1px solid blue;
-    margin:2% 5%;
+    text-align: center;
+    margin-top:3%;
 }
 
 .insertar{
-    border: 1px solid green;
+    margin:5%;
+    
 }
 
-.datos-insertar{
-    border: 1px solid pink;
-    margin:2% 5%;
+.insertar-texto{
+    display: inline-block;
+    margin-right: 2%;
+}
+
+.botones{
+     text-align: center;
+     margin-top:3%;
 }
 
 .boton-guardar{
-    border: 1px solid pink;
-    margin:2% 5%;
+    margin-right: 3%;
 }
