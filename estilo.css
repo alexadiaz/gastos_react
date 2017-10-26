@@ -1,11 +1,40 @@
+h4{
+    margin-bottom: 0;
+}
+
 .container{
+    margin:5%;
+}
+
+.consulta{
     border: 1px solid red;
 }
 
 .busqueda{
     border: 1px solid blue;
+    margin:3% 5%;
 }
 
-.consulta{
-    border: 1px solid yellow;
+.resultado{
+    border: 1px solid blue;
+    margin:2% 5%;
+}
+
+.boton-insertar{
+    border: 1px solid blue;
+    margin:2% 5%;
+}
+
+.insertar{
+    border: 1px solid green;
+}
+
+.datos-insertar{
+    border: 1px solid pink;
+    margin:2% 5%;
+}
+
+.boton-guardar{
+    border: 1px solid pink;
+    margin:2% 5%;
 }
