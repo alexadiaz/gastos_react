@@ -5,8 +5,14 @@ h2{
 }
 
 h4{
-    margin: 0;
+    margin-top: 0;
+    margin-bottom: 2%;
     text-align: center;
+}
+
+ul{
+    list-style-type: none;
+    padding-left: 5%;
 }
 
 .container{
@@ -14,30 +20,34 @@ h4{
     margin:5%;
 }
 
-.linea-titulo{
+.line-title{
    border: 1px dashed gray;
    margin:0 5%;
 }
 
-.busqueda{
-   margin:7% 5% 5%;
+.search{
+   margin:5% 5%;
 }
 
-.consulta{
-    margin:2% 5%;
-
-}
-
-.busqueda-texto{
+.search-text{
     display: inline-block;
 }
 
-.busqueda-seleccion{
-    margin-left:2%;
-    margin-right:5%;
+.search-selection{
+    margin-left:10px;
+    margin-right:30px;
 }
 
-.resultado{
+.search-consultar{
+    margin-right:30px;
+}
+
+.query{
+    margin:5% 5%;
+
+}
+
+.result{
     border: 1px solid black;
 }
 
@@ -47,40 +57,49 @@ h4{
     display: table;
 }
 
-.resultado-texto{
+.result-text{
     display: inline-block;
 }
 
-.boton-modificar{
-    float:right;
-}
-
-.boton-eliminar{
+.result-eliminar{
     float:right;
     margin-right: 3%;
     margin-left: 3%;
 }
 
-.boton-insertar{
-    text-align: center;
-    margin-top:3%;
+.result-modificar{
+    float:right;
 }
 
-.insertar{
-    margin:5%;
-    
+.insert{
+    margin:5% 5%;
+       
 }
 
-.insertar-texto{
+.form{
+    border: 1px solid black;
+    padding: 5%;
+}
+
+.form-period{
+    margin-bottom: 2%;
+}
+
+.form-general{
     display: inline-block;
-    margin-right: 2%;
+    width: 50%;
 }
 
-.botones{
+.form-text{
+    display: inline-block;
+    width: 100px;
+}
+
+.buttons{
      text-align: center;
-     margin-top:3%;
+     margin-top:6%;
 }
 
-.boton-guardar{
+.button-guardar{
     margin-right: 3%;
 }
