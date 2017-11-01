@@ -1,119 +1,138 @@
-let Container = (props) =>{
+let Container = () =>{
     return(
-        <div className={props.class}>
+        <div className="container">
             <div>
-                <Titulo/>
-                <div className="linea-titulo"></div>
-                <Busqueda class="busqueda"/>
+                <h2>Control de Pagos</h2>
+                <div className="line-title"></div>
+                <Search/>
+                <div className="line-title"></div>
             </div>
-            <div className="consulta">
-                <SubTitulo/>
-                <Resultado class="resultado clearfix"/>
-                <BotonInsertar class="boton-insertar"/>
+            <div className="query">
+                <h4>Resultado de la Consulta</h4>
+                <Result/>
             </div>
-            <div className="insertar">
-                <DatosInsertar tabla="1"/>
-                <Botones class="botones"/>
+            <div className="insert">
+                <h4>Insertar nuevo elemento</h4>
+                <DataInsert table="1"/>
             </div>
         </div>
     );
 };
 
-let Titulo = () => <h2>Control de Pagos</h2>;
-
-let Busqueda = (props) => {
+let Search = () => {
     return (
-        <div className={props.class}>
-            <div className="busqueda-texto">Elija tabla</div>
-            <select className="busqueda-seleccion">
-                <option>opcion 1</option>
+        <div className="search">
+            <div className="search-text">Elija tabla</div>
+            <select className="search-selection">
+                <option>Opcion 1</option>
             </select>
-            <input type="button" value ="Consultar"/>
+            <input type="button" className="search-consultar" value ="Consultar"/>
+            <input type="button" value="Insertar"/>
         </div>
     );
 };
 
-let SubTitulo = () => <h4>Resultado de la Busqueda</h4>;
-
-let Resultado = (props) =>{
+let Result = () =>{
     return (
-        <div className={props.class}>
+        <div className="result clearfix">
             <ul>
                 <li>
-                    <div className="resultado-texto">consulta 1</div>
-                    <input type="button" className="boton-eliminar" value="Eliminar"/>
-                    <input type="button" className="boton-modificar" value="Modificar"/>
+                    <div className="result-text">Consulta 1</div>
+                    <input type="button" className="result-eliminar" value="Eliminar"/>
+                    <input type="button" className="result-modificar" value="Modificar"/>
+                </li>
+                <li>
+                    <div className="result-text">Consulta 2</div>
+                    <input type="button" className="result-eliminar" value="Eliminar"/>
+                    <input type="button" className="result-modificar" value="Modificar"/>
                 </li>
             </ul>
         </div>
     );
 };
 
-let BotonInsertar = (props) =>{
-    return (
-        <div className={props.class}>
-            <input type="button" value="Insertar"/>
-        </div>
-    );
-};
-
-let DatosInsertar = (props) =>{
-    if (props.tabla === "1"){
-        return <InsertarGastosIngresos/>;
+let DataInsert = (props) =>{
+    let form;
+    if (props.table === "1"){
+        form = <InsertExpensesIncom/>;
     }
-    else if(props.tabla === "2"){
-        return <InsertarPeriodos/>;
+    else if(props.table === "2"){
+        form = <InsertPeriods/>;
     }
     else{
-        return <InsertarPagos/>; 
+        form = <InsertPayments/>; 
     }
-};
-
-let InsertarGastosIngresos = () =>{
-    return(
-        <div>
-            <div className="insertar-texto">Digite Nombre</div>
-            <input type="text"/>
-        </div>
-    );
-};
-
-let InsertarPeriodos = () =>{
-    return(
-        <div>
-            <div>Elija Mes</div>
-            <select>
-                <option>opcion 1</option>
-            </select>
-            <div>Elija Ano</div>
-            <select>
-                <option>opcion 1</option>
-            </select>
-        </div>
-    );
-};
-
-let InsertarPagos = () =>{
-    return(
-        <div>
-            <InsertarPeriodos/>
-            <div>Elija Nombre</div>
-            <select>
-                <option>opcion 1</option>
-            </select>
-            <div>Digite Valor</div>
-            <input type="text"/>
-        </div>
-    );
-};
-
-let Botones = (props) =>{
     return (
-        <div className={props.class}>
-            <input type="button" className="boton-guardar" value="Guardar"/>
+        <div className="form">
+            {form}
+            <Buttons/>
+        </div>
+    );
+};
+
+let InsertExpensesIncom = () =>{
+    return(
+        <div>
+            <div className="form-text">Digite Nombre</div>
+            <div className="form-text">
+                <input type="text"/>
+            </div>
+        </div>
+    );
+};
+
+let InsertPeriods = () =>{
+    return(
+        <div className="form-period">
+            <div className="form-general">
+                <div className="form-text">Elija Mes</div>
+                <div className="form-text">
+                    <select>
+                        <option>Opcion 1</option>
+                    </select>
+                </div>
+            </div>
+            <div className="form-general">
+                <div className="form-text">Elija Ano</div>
+                <div className="form-text">
+                    <select>
+                        <option>Opcion 1</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+let InsertPayments = () =>{
+    return(
+        <div>
+            <InsertPeriods/>
+            <div className="form-general">
+                <div className="form-text">Elija Nombre</div>
+                <div className="form-text">
+                    <select>
+                        <option>Opcion 1</option>
+                    </select>
+                </div>
+            </div>
+            <div className="form-general">
+                <div className="form-text">Digite Valor</div>
+                <div className="form-text">
+                    <input type="text"/>
+                </div>
+            </div>
+        </div>
+    );
+};
+
+let Buttons = () =>{
+    return (
+        <div className="buttons">
+            <input type="button" className="button-guardar" value="Guardar"/>
             <input type="button" value="Cancelar"/>
         </div>
     );
 };
 
-document.addEventListener("DOMContentLoaded",() => ReactDOM.render(<Container class="container"/>,document.getElementById("app")));
+document.addEventListener("DOMContentLoaded",() => ReactDOM.render(<Container/>,document.getElementById("app")));
