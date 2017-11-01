@@ -58,17 +58,15 @@ let BotonInsertar = (props) =>{
 };
 
 let DatosInsertar = (props) =>{
-    let formulario;
     if (props.tabla === "1"){
-        formulario = <InsertarGastosIngresos/>;
+        return <InsertarGastosIngresos/>;
     }
     else if(props.tabla === "2"){
-        formulario = <InsertarPeriodos/>;
+        return <InsertarPeriodos/>;
     }
     else{
-        formulario = <InsertarPagos/>; 
+        return <InsertarPagos/>; 
     }
-    return formulario;
 };
 
 let InsertarGastosIngresos = () =>{
