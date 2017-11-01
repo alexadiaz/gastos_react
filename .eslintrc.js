@@ -31,6 +31,10 @@ module.exports = {
         "semi": [
             "error",
             "always"
-        ]
+        ],
+        "react/jsx-uses-vars": "error"
+    },
+    "globals":{
+        "ReactDOM":true
     }
 };
