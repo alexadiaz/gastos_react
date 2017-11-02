@@ -32,7 +32,8 @@ module.exports = {
             "error",
             "always"
         ],
-        "react/jsx-uses-vars": "error"
+        "react/jsx-uses-vars": "error",
+        "no-console":"off"
     },
     "globals":{
         "ReactDOM":true,
