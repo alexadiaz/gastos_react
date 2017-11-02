@@ -1,6 +1,5 @@
 h2{
     margin-top: 8%;
-    margin-bottom: 1%;
     text-align: center;
 }
 
@@ -22,7 +21,7 @@ ul{
 
 .line-title{
    border: 1px dashed gray;
-   margin:0 5%;
+   margin:5% 5%;
 }
 
 .search{
@@ -44,7 +43,7 @@ ul{
 
 .query{
     margin:5% 5%;
-
+    display: none;
 }
 
 .result{
@@ -55,6 +54,10 @@ ul{
     content: "";
     clear: both;
     display: table;
+}
+
+.result-li{
+    margin:10px
 }
 
 .result-text{
@@ -73,7 +76,7 @@ ul{
 
 .insert{
     margin:5% 5%;
-       
+    display: none;
 }
 
 .form{
