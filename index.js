@@ -24,7 +24,12 @@ let Search = () => {
         <div className="search">
             <div className="search-text">Elija tabla</div>
             <select className="search-selection">
-                <option>Opcion 1</option>
+                <option></option>
+                <option>Ingresos</option>
+                <option>Gastos</option>
+                <option>Periodos</option>
+                <option>Pagos Recibidos</option>
+                <option>Pagos Realizados</option>
             </select>
             <input type="button" className="search-consultar" value ="Consultar"/>
             <input type="button" value="Insertar"/>
