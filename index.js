@@ -39,14 +39,14 @@ let Search = () => {
 
 let Result = () =>{
     return (
-        <div className="result clearfix">
+        <div className="result">
             <ul>
-                <li>
+                <li className="clearfix result-li">
                     <div className="result-text">Consulta 1</div>
                     <input type="button" className="result-eliminar" value="Eliminar"/>
                     <input type="button" className="result-modificar" value="Modificar"/>
                 </li>
-                <li>
+                <li className="clearfix result-li">
                     <div className="result-text">Consulta 2</div>
                     <input type="button" className="result-eliminar" value="Eliminar"/>
                     <input type="button" className="result-modificar" value="Modificar"/>
