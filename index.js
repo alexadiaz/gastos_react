@@ -24,59 +24,126 @@ class Container extends React.Component {
     }
     
     render(){
-    return(
-        <div className="container">
-            <div>
+        return(
+            <div className="container">
                 <h2>Control de Pagos</h2>
                 <div className="line-title"></div>
-                <Search/>
+                <Search onSearchChange={(table) => this.searchChanged(table)}/>
                 <div className="line-title"></div>
+                <Query display={this.state.show ? this.display[1]: this.display[0]} onShowDisplay={(show)=> this.showDisplay(show)} table={this.state.tableName}/>
+                <Insert/>
             </div>
-            <div className="query">
+        );
+    }
+}
+
+class Search extends React.Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            tableName: null
+        };
+    }
+   
+    handleClick(){
+        this.props.onSearchChange(this.state.tableName);
+    }
+
+    optionChanged(event){
+        let value = event.target.value;
+        this.setState(state => {
+            state.tableName = value;
+            return state;
+        });
+    }
+
+    render(){
+        return (
+            <div className="search">
+                <div className="search-text">Elija tabla</div>
+                <select className="search-selection" onChange={(event) => this.optionChanged(event)}>
+                    <option></option>
+                    <option>Ingresos</option>
+                    <option>Gastos</option>
+                    <option>Periodos</option>
+                    <option>Pagos Recibidos</option>
+                    <option>Pagos Realizados</option>
+                </select>
+                <button className="search-consultar" onClick={()=>this.handleClick()}>Consultar</button>
+                <button>Insertar</button>
+            </div>
+        );
+    }
+}
+
+class Query extends React.Component {
+    
+    constructor(props){
+        super(props);
+        this.state = {
+            content:null
+        };
+    }
+   
+    componentWillReceiveProps(nextProps){
+        if(nextProps.table === this.props.table){
+            return;
+        }
+        if (nextProps.table !== ""){
+            fetch("http://localhost:3000/consultar"+nextProps.table.replace(" ",""))
+                .then(obj =>obj.json())
+                .then(quer => {
+                    this.props.onShowDisplay(true);
+                    this.setState(state => {
+                        state.content = quer.contenido;
+                        return state;
+                    });
+                });
+        }
+        else{
+            this.props.onShowDisplay(false);
+            this.setState(state => {
+                state.content = null;
+                return state;
+            });
+        }
+    }
+
+    render(){
+        console.log(this.state.content);
+        return (
+            <div className="query" style={this.props.display}>
                 <h4>Resultado de la Consulta</h4>
-                <Result/>
+                <Result content={this.state.content} table={this.props.table}/>
             </div>
-            <div className="insert">
-                <h4>Insertar nuevo elemento</h4>
-                <DataInsert table="1"/>
-            </div>
-        </div>
-    );
+        );
+    }
+}
+
+let Result = (props) =>{
+    if(props.content === null){
+        return null;
+    }
+    else{
+        let listItems = props.content.map(i => {
+            let liChildren =[];
+            if(props.table==="Ingresos" || props.table==="Gastos"){
+                liChildren.push(<div className="result-text" key={i.nombre}>{i.nombre}</div>); 
+            }
+            else if(props.table==="Periodos"){
+                liChildren.push(<div className="result-text" key={i.mes}>{i.mes}</div>); 
+                liChildren.push(<div className="result-text" key={i.ano}>{i.ano}</div>); 
+            }
+            return (<li className="clearfix result-li" key={i.id}>{liChildren}
+                <input type="button" className="result-eliminar" value="Eliminar"/>
+                <input type="button" className="result-modificar" value="Modificar"/>
+            </li>);
+        });
+        return <ul className="result">{listItems}</ul>;
+    }
 };
 
-let Search = () => {
-    return (
-        <div className="search">
-            <div className="search-text">Elija tabla</div>
-            <select className="search-selection">
-                <option></option>
-                <option>Ingresos</option>
-                <option>Gastos</option>
-                <option>Periodos</option>
-                <option>Pagos Recibidos</option>
-                <option>Pagos Realizados</option>
-            </select>
-            <input type="button" className="search-consultar" value ="Consultar"/>
-            <input type="button" value="Insertar"/>
-        </div>
-    );
-};
-
-let Result = () =>{
-    return (
-        <div className="result">
-            <ul>
-                <li className="clearfix result-li">
-                    <div className="result-text">Consulta 1</div>
-                    <input type="button" className="result-eliminar" value="Eliminar"/>
-                    <input type="button" className="result-modificar" value="Modificar"/>
-                </li>
-                <li className="clearfix result-li">
-                    <div className="result-text">Consulta 2</div>
-                    <input type="button" className="result-eliminar" value="Eliminar"/>
-                    <input type="button" className="result-modificar" value="Modificar"/>
-                </li>
-            </ul>
 let Insert = () =>{
     return(
         <div className="insert">
