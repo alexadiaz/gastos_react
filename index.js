@@ -1,4 +1,29 @@
-let Container = () =>{
+class Container extends React.Component {
+
+    constructor(){
+        super();
+        this.display=[{display:"none"},{display:"block"}];
+        this.state = {
+            tableName: null,
+            show: false
+        };
+    }
+
+    searchChanged(tableName){
+        this.setState(state => {
+            state.tableName = tableName;
+            return state;
+        });
+    }
+
+    showDisplay(show){
+        this.setState(state => {
+            state.show = show;
+            return state;
+        });
+    }
+    
+    render(){
     return(
         <div className="container">
             <div>
