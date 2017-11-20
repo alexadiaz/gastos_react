@@ -77,6 +77,11 @@ let Result = () =>{
                     <input type="button" className="result-modificar" value="Modificar"/>
                 </li>
             </ul>
+let Insert = () =>{
+    return(
+        <div className="insert">
+            <h4>Insertar nuevo elemento</h4>
+            <DataInsert table="1"/>
         </div>
     );
 };
