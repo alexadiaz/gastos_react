@@ -127,18 +127,15 @@ let Result = (props) =>{
     }
     else{
         let listItems = props.content.map(i => {
-            let liChildren =[];
             if(props.table==="Ingresos" || props.table==="Gastos"){
-                liChildren.push(<div className="result-text" key={i.nombre}>{i.nombre}</div>); 
+                return <ShowQuery i={i} key={i.id}/>; 
             }
             else if(props.table==="Periodos"){
-                liChildren.push(<div className="result-text" key={i.mes}>{i.mes}</div>); 
-                liChildren.push(<div className="result-text" key={i.ano}>{i.ano}</div>); 
+                return <ShowQueryPeriodos i={i} key={i.id}/>;
             }
-            return (<li className="clearfix result-li" key={i.id}>{liChildren}
-                <input type="button" className="result-eliminar" value="Eliminar"/>
-                <input type="button" className="result-modificar" value="Modificar"/>
-            </li>);
+            else if(props.table==="Pagos Realizados" || props.table==="Pagos Recibidos"){
+                return <ShowQueryPagos i={i} key={i.id}/>;
+            }
         });
         return <ul className="result">{listItems}</ul>;
     }
