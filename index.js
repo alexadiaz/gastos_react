@@ -144,6 +144,40 @@ let Result = (props) =>{
     }
 };
 
+let ShowQuery = (props) =>{
+    return (
+        <li className="clearfix result-li" >
+            <div className="result-text">{props.i.nombre}</div>
+            <input type="button" className="result-eliminar" value="Eliminar"/>
+            <input type="button" className="result-modificar" value="Modificar"/>
+        </li>
+    );
+};
+
+let ShowQueryPeriodos = (props) =>{
+    return (
+        <li className="clearfix result-li" >
+            <div className="result-text">{props.i.mes}</div>
+            <div className="result-text">{props.i.ano}</div>
+            <input type="button" className="result-eliminar" value="Eliminar"/>
+            <input type="button" className="result-modificar" value="Modificar"/>
+        </li>
+    );
+};
+
+let ShowQueryPagos = (props) =>{
+    return (
+        <li className="clearfix result-li" >
+            <div className="result-text" >{props.i.mes}</div>
+            <div className="result-text">{props.i.ano}</div> 
+            <div className="result-text" >{props.i.nombre}</div>
+            <div className="result-text" >{props.i.valor}</div>
+            <input type="button" className="result-eliminar" value="Eliminar"/>
+            <input type="button" className="result-modificar" value="Modificar"/>
+        </li>
+    );
+};
+
 let Insert = () =>{
     return(
         <div className="insert">
