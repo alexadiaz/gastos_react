@@ -111,7 +111,6 @@ class Query extends React.Component {
     }
 
     render(){
-        console.log(this.state.content);
         return (
             <div className="query" style={this.props.display}>
                 <h4>Resultado de la Consulta</h4>
