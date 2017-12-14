@@ -10,29 +10,34 @@ class Container extends React.Component {
         };
     }
 
-    searchChanged(tableName){
-        this.setState(state => {
-            state.tableName = tableName;
-            return state;
-        });
+    searchChanged(tableName,show,showInsert){
+        if (tableName !== ""){
+            this.setState(state => {
+                state.tableName = tableName;
+                state.show = show;
+                state.showInsert = showInsert;
+                return state;
+            });
+        }
+        else{
+            this.setState(state => {
+                state.tableName = "";
+                state.show = false;
+                state.showInsert = false;
+                return state;
+            });
+        }
     }
 
-    showDisplay(show){
-        this.setState(state => {
-            state.show = show;
-            return state;
-        });
-    }
-    
     render(){
         return(
             <div className="container">
                 <h2>Control de Pagos</h2>
                 <div className="line-title"></div>
-                <Search onSearchChange={(table) => this.searchChanged(table)}/>
+                <Search onSearchChanged={(table,show,showInsert) => this.searchChanged(table,show,showInsert)}/>
                 <div className="line-title"></div>
-                <Query display={this.state.show ? this.display[1]: this.display[0]} onShowDisplay={(show)=> this.showDisplay(show)} table={this.state.tableName}/>
-                <Insert/>
+                <Query display={this.state.show ? this.display[1]:this.display[0]} table={this.state.tableName}/>
+                <Insert display={this.state.showInsert ? this.display[1]:this.display[0]} table={this.state.tableName}/>
             </div>
         );
     }
@@ -179,7 +184,7 @@ let Insert =(props) => {
             <h4>Insertar nuevo elemento</h4>
             <DataInsert table={props.table}/>
         </div>
-    );
+    ); 
 };
 
 let DataInsert = (props) =>{
