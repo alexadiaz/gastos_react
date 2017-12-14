@@ -184,13 +184,13 @@ let Insert =(props) => {
 
 let DataInsert = (props) =>{
     let form;
-    if (props.table === "1"){
+    if(props.table==="Ingresos" || props.table==="Gastos"){
         form = <InsertExpensesIncom/>;
     }
-    else if(props.table === "2"){
+    else if(props.table==="Periodos"){
         form = <InsertPeriods/>;
     }
-    else{
+    else if(props.table==="Pagos Realizados" || props.table==="Pagos Recibidos"){
         form = <InsertPayments/>; 
     }
     return (
