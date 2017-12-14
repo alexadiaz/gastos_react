@@ -174,11 +174,11 @@ let ShowQueryPagos = (props) =>{
     );
 };
 
-let Insert = () =>{
+let Insert =(props) => {
     return(
-        <div className="insert">
+        <div className="insert" style={props.display}>
             <h4>Insertar nuevo elemento</h4>
-            <DataInsert table="1"/>
+            <DataInsert table={props.table}/>
         </div>
     );
 };
