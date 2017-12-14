@@ -121,11 +121,15 @@ class Query extends React.Component {
 }
 
 let Result = (props) =>{
+    
     if(props.content === null){
         return null;
     }
+    else if (props.content === "Sin datos"){
+        return <div>Sin datos</div>;
+    }
     else{
-        let listItems = props.content.map(i => {
+        let listItems = props.content.contenido.map(i => {
             if(props.table==="Ingresos" || props.table==="Gastos"){
                 return <ShowQuery i={i} key={i.id}/>; 
             }
