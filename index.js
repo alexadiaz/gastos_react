@@ -94,15 +94,13 @@ class Query extends React.Component {
             fetch("http://localhost:3000/consultar"+nextProps.table.replace(" ",""))
                 .then(obj =>obj.json())
                 .then(quer => {
-                    this.props.onShowDisplay(true);
                     this.setState(state => {
-                        state.content = quer.contenido;
+                        state.content = quer;
                         return state;
                     });
                 });
         }
         else{
-            this.props.onShowDisplay(false);
             this.setState(state => {
                 state.content = null;
                 return state;
