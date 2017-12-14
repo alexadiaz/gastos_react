@@ -4,8 +4,9 @@ class Container extends React.Component {
         super();
         this.display=[{display:"none"},{display:"block"}];
         this.state = {
-            tableName: null,
-            show: false
+            tableName: "",
+            show:false,
+            showInsert:false
         };
     }
 
