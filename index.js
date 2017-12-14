@@ -70,8 +70,8 @@ class Search extends React.Component {
                     <option>Pagos Recibidos</option>
                     <option>Pagos Realizados</option>
                 </select>
-                <button className="search-consultar" onClick={()=>this.handleClick()}>Consultar</button>
-                <button>Insertar</button>
+                <button className="search-consultar" onClick={()=> this.props.onSearchChanged(this.state.tableName,true,false)}>Consultar</button>
+                <button onClick={()=>this.props.onSearchChanged(this.state.tableName,false,true)}>Insertar</button>
             </div>
         );
     }
