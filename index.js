@@ -42,14 +42,10 @@ class Search extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            tableName: null
+            tableName: ""
         };
     }
    
-    handleClick(){
-        this.props.onSearchChange(this.state.tableName);
-    }
-
     optionChanged(event){
         let value = event.target.value;
         this.setState(state => {
