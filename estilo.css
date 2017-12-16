@@ -11,7 +11,7 @@ h4{
 
 ul{
     list-style-type: none;
-    padding-left: 5%;
+    padding-left: 0;
 }
 
 .container{
@@ -41,12 +41,10 @@ ul{
     margin-right:30px;
 }
 
-.query{
+.form{
     margin:5% 5%;
-}
-
-.result{
     border: 1px solid black;
+    padding: 5%;
 }
 
 .clearfix::after {
@@ -73,19 +71,6 @@ ul{
     float:right;
 }
 
-.insert{
-    margin:5% 5%;
-}
-
-.form{
-    border: 1px solid black;
-    padding: 5%;
-}
-
-.form-period{
-    margin-bottom: 2%;
-}
-
 .form-general{
     display: inline-block;
     width: 50%;
@@ -94,6 +79,7 @@ ul{
 .form-text{
     display: inline-block;
     width: 100px;
+    margin-top: 10px;
 }
 
 .buttons{
