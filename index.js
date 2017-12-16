@@ -121,7 +121,6 @@ class Query extends React.Component {
 }
 
 let Result = (props) =>{
-    
     if(props.content === null){
         return null;
     }
