@@ -245,17 +245,13 @@ let InsertPayments = () =>{
             <InsertPeriods/>
             <div className="form-general">
                 <div className="form-text">Elija Nombre</div>
-                <div className="form-text">
-                    <select>
+                <select className="form-text">
                         <option>Opcion 1</option>
                     </select>
                 </div>
-            </div>
             <div className="form-general">
                 <div className="form-text">Digite Valor</div>
-                <div className="form-text">
-                    <input type="text"/>
-                </div>
+                <input type="text" className="form-text"/>
             </div>
         </div>
     );
