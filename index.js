@@ -112,7 +112,7 @@ class Query extends React.Component {
 
     render(){
         return (
-            <div className="query" style={this.props.display}>
+            <div className="form" style={this.props.display}>
                 <h4>Resultado de la Consulta</h4>
                 <Result content={this.state.content} table={this.props.table}/>
             </div>
