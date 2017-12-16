@@ -145,7 +145,7 @@ let Result = (props) =>{
 
 let ShowQuery = (props) =>{
     return (
-        <li className="clearfix result-li" >
+        <li className="clearfix result-li">
             <div className="result-text">{props.i.nombre}</div>
             <input type="button" className="result-eliminar" value="Eliminar"/>
             <input type="button" className="result-modificar" value="Modificar"/>
@@ -188,22 +188,18 @@ let Insert =(props) => {
 };
 
 let DataInsert = (props) =>{
-    let form;
     if(props.table==="Ingresos" || props.table==="Gastos"){
-        form = <InsertExpensesIncom/>;
+        return <InsertExpensesIncom/>;
     }
     else if(props.table==="Periodos"){
-        form = <InsertPeriods/>;
+        return <InsertPeriods/>;
     }
     else if(props.table==="Pagos Realizados" || props.table==="Pagos Recibidos"){
-        form = <InsertPayments/>; 
+        return <InsertPayments/>; 
     }
-    return (
-        <div className="form">
-            {form}
-            <Buttons/>
-        </div>
-    );
+    else{
+        return null;
+    }
 };
 
 let InsertExpensesIncom = () =>{
@@ -221,16 +217,16 @@ let InsertPeriods = () =>{
             <div className="form-general">
                 <div className="form-text">Elija Mes</div>
                 <select className="form-text">
-                        <option>Opcion 1</option>
-                    </select>
-                </div>
+                    <option>Opcion 1</option>
+                </select>
+            </div>
             <div className="form-general">
                 <div className="form-text">Elija Ano</div>
-                    <select>
-                        <option>Opcion 1</option>
-                    </select>
-                </div>
+                <select>
+                    <option>Opcion 1</option>
+                </select>
             </div>
+        </div>
     );
 };
 
@@ -241,9 +237,9 @@ let InsertPayments = () =>{
             <div className="form-general">
                 <div className="form-text">Elija Nombre</div>
                 <select className="form-text">
-                        <option>Opcion 1</option>
-                    </select>
-                </div>
+                    <option>Opcion 1</option>
+                </select>
+            </div>
             <div className="form-general">
                 <div className="form-text">Digite Valor</div>
                 <input type="text" className="form-text"/>
