@@ -139,7 +139,7 @@ let Result = (props) =>{
                 return <ShowQueryPagos i={i} key={i.id}/>;
             }
         });
-        return <ul className="result">{listItems}</ul>;
+        return <ul>{listItems}</ul>;
     }
 };
 
