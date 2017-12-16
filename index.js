@@ -208,35 +208,29 @@ let DataInsert = (props) =>{
 
 let InsertExpensesIncom = () =>{
     return(
-        <div>
+        <div className="form-general">
             <div className="form-text">Digite Nombre</div>
-            <div className="form-text">
-                <input type="text"/>
-            </div>
+            <input type="text" className="form-text"/>
         </div>
     );
 };
 
 let InsertPeriods = () =>{
     return(
-        <div className="form-period">
+        <div>
             <div className="form-general">
                 <div className="form-text">Elija Mes</div>
-                <div className="form-text">
-                    <select>
+                <select className="form-text">
                         <option>Opcion 1</option>
                     </select>
                 </div>
-            </div>
             <div className="form-general">
                 <div className="form-text">Elija Ano</div>
-                <div className="form-text">
                     <select>
                         <option>Opcion 1</option>
                     </select>
                 </div>
             </div>
-        </div>
     );
 };
 
