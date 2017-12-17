@@ -281,8 +281,8 @@ let InsertPayments = () =>{
 let Buttons = () =>{
     return (
         <div className="buttons">
-            <input type="button" className="button-guardar" value="Guardar"/>
-            <input type="button" value="Cancelar"/>
+            <button className="button-guardar">Guardar</button>
+            <button>Cancelar</button>
         </div>
     );
 };
