@@ -114,11 +114,41 @@ class Query extends React.Component {
         return (
             <div className="form" style={this.props.display}>
                 <h4>Resultado de la Consulta</h4>
+                <TitleResult content={this.state.content} table={this.props.table}/>
                 <Result content={this.state.content} table={this.props.table}/>
             </div>
         );
     }
 }
+
+let TitleResult = (props) =>{
+    if(props.content === null || props.content === "Sin datos"){
+        return null;
+    }
+    else{
+        if(props.table==="Ingresos" || props.table==="Gastos"){
+            return <div className="title-result">Descripcion</div>; 
+        }
+        else if(props.table==="Periodos"){
+            return (
+                <div className="title-result">
+                    <div className="result-text-mes">Mes</div>
+                    <div className="result-text-ano">Ano</div>
+                </div>
+            );
+        }
+        else if(props.table==="Pagos Realizados" || props.table==="Pagos Recibidos"){
+            return (
+                <div className="title-result">
+                    <div className="result-text-mes">Mes</div>
+                    <div className="result-text-ano">Ano</div>
+                    <div className="result-text">Descripcion</div>
+                    <div className="result-text">Valor</div>
+                </div>
+            );
+        }
+    }
+};
 
 let Result = (props) =>{
     if(props.content === null){
