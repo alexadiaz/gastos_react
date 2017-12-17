@@ -47,6 +47,10 @@ ul{
     padding: 5%;
 }
 
+.title-result{
+   font-weight: bold; 
+}
+
 .clearfix::after {
     content: "";
     clear: both;
@@ -54,11 +58,25 @@ ul{
 }
 
 .result-li{
-    margin:10px
+    margin-top:10px;
+    margin-bottom:10px;
 }
 
 .result-text{
     display: inline-block;
+    width: 150px;
+}
+
+.result-text-mes{
+    display: inline-block;
+    width: 16px; 
+    margin-right: 20px;
+    text-align: right;
+}
+
+.result-text-ano{
+    display: inline-block;
+    width: 50px; 
 }
 
 .result-eliminar{
