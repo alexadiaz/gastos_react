@@ -248,11 +248,11 @@ let DataInsert = (props) =>{
     }
 };
 
-let InsertExpensesIncom = () =>{
+let InsertExpensesIncom = (props) =>{
     return(
         <div className="form-general">
             <div className="form-text">Digite Nombre</div>
-            <input type="text" className="form-text"/>
+            <input type="text" className="form-text" onChange={(event)=>props.value(event.target.value)} value={props.show}/>
         </div>
     );
 };
