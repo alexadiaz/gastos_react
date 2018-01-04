@@ -235,7 +235,7 @@ class Insert extends React.Component {
 
 let DataInsert = (props) =>{
     if(props.table==="Ingresos" || props.table==="Gastos"){
-        return <InsertExpensesIncom/>;
+        return <InsertExpensesIncom value={((value)=>props.value(value))} show={props.show}/>;
     }
     else if(props.table==="Periodos"){
         return <InsertPeriods/>;
