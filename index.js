@@ -227,7 +227,7 @@ class Insert extends React.Component {
             <div className="form" style={this.props.display}>
             <h4>Insertar nuevo elemento</h4>
                 <DataInsert table={this.props.table} value={(value)=> this.nameChanged(value)} show={this.state.value}/>
-                <Buttons save={this.state.value} value={(value)=>this.nameChanged(value)}/>
+                <Buttons table={this.props.table} save={this.state.value} value={(value)=>this.nameChanged(value)}/>
         </div>
     ); 
     }
