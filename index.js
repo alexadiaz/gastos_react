@@ -207,15 +207,31 @@ let ShowQueryPagos = (props) =>{
     );
 };
 
-let Insert =(props) => {
+class Insert extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            value:""
+        };
+    }
+    
+    nameChanged(value){
+        this.setState(state => {
+            state.value = value;
+            return state;
+        });
+    }
+
+    render(){
     return(
-        <div className="form" style={props.display}>
+            <div className="form" style={this.props.display}>
             <h4>Insertar nuevo elemento</h4>
-            <DataInsert table={props.table}/>
-            <Buttons/>
+                <DataInsert table={this.props.table} value={(value)=> this.nameChanged(value)} show={this.state.value}/>
+                <Buttons save={this.state.value} value={(value)=>this.nameChanged(value)}/>
         </div>
     ); 
-};
+    }
+}
 
 let DataInsert = (props) =>{
     if(props.table==="Ingresos" || props.table==="Gastos"){
